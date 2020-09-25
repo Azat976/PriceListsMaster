@@ -1,0 +1,390 @@
+﻿
+
+@model WebApp.Models.PriceList
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>PriceList</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PriceId, "PriceId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PriceId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PriceId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Column1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Column1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Column1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Column2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Column2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Column2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Column3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Column3, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Column3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Column4, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Column4, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Column4, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Column5, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Column5, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Column5, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Column6, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Column6, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Column6, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Column7, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Column7, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Column7, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Column8, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div id="block" class="col-md-10">
+                @Html.EditorFor(model => model.Column8, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Column8, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<button id="button">Скрыть</button>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script type="text/javascript">
+  $('#button').click(function() {
+  $("#block").css("display", "none");
+});
+    </script>
+}
+
+
+
+
+
+@*@model WebApp.Models.PriceList
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Client Registration</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Client Registration</legend>
+        <table id="clientTable" class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Client Name</td>
+                    <td>Code</td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tr id="tablerow0">
+
+                <td>
+                    <div class="editor-field">
+                        <input class="text-box single-line" name="Name[0]" type="text" value="" required="required" />
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        <input type="number" class="text-box single-line" name="Code[0]" value="" required="required" />
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="removeTr(0);">Delete</button>
+                </td>
+            </tr>
+
+        </table>
+        <p>
+            <button id="addButton" type="submit" class="btn btn-primary">New Client</button>
+        </p>
+        <hr />
+        <p>
+            <input type="submit" value="CreateList" class="btn btn-default" />
+        </p>
+        <p>
+            <button type="submit" class="btn btn-primary">Save Clients</button>
+        </p>
+    </fieldset>
+    }
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+        <script type="text/javascript">
+            var counter = 1;
+            $(function () {
+
+                $('#addButton').click(function () {
+                    $('<tr id="tablerow' + counter + '"><td>' +
+                        '<input class="text-box single-line" name="Name[' + counter + ']" type="text" value="" required="required" />' +
+                        '</td>' +
+                        '<td>' +
+                        '<input type="number" class="text-box single-line" name="Code[' + counter + ']" value="" required="required" />' +
+                        '</td>' +
+                        '<td>' +
+                        '<button type="button" class="btn btn-primary" onclick="removeTr(' + counter + ');">Delete</button>' +
+                        '</td>' +
+                        '</tr>').appendTo('#clientTable');
+                    counter++;
+                    return false;
+                });
+            });
+            function removeTr(index) {
+                if (counter > 1) {
+                    $('#tablerow' + index).remove();
+                    counter--;
+                }
+                return false;
+            }
+        </script>
+    }*@
+
+
+
+@*<button id="AddButton">Add New Contact</button>
+    <form method="post">
+        <table>
+            <thead>
+                <tr>
+                    <td>Street No</td>
+                    <td>Address</td>
+                    <td>Telephone No</td>
+
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <input type="submit" value="CreateList" class="btn btn-default" />
+    </form>
+    <input type="hidden" id="totalContacts" value="0" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#AddButton").click(function () {
+                tc = parseInt($("#totalContacts").val());
+                tc = tc + 1;
+                $("#totalContacts").val(tc)
+
+                $("tbody").append('<input type="text" name="[' + (tc - 1) + '].PriceId" /><input type="text" name="[' + (tc - 1) + '].Name" /><input type="text" name="[' + (tc - 1) + '].Code" />Remove')
+            });
+
+            $("tbody").on("click", "span", function () {
+                tc = parseInt($("#totalContacts").val());
+                tc = tc - 1;
+                $("#totalContacts").val(tc)
+
+                $(this).parents("tr").remove();
+            });
+        });
+    </script>*@
+
+@*@model WebApp.Models.PriceList
+
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Новая книга</h2>
+
+    @using (Html.BeginForm())
+    {
+        <script src="~/Scripts/newfield.js" type="text/javascript"></script>
+        @Html.LabelFor(model => model.PriceId, "Название книги")
+        <br />
+        @Html.EditorFor(model => model.PriceId)
+        <br />
+        @Html.LabelFor(model => model.Name, "Название книги")
+        <br />
+        @Html.EditorFor(model => model.Name)
+        <br />
+
+        <br />
+
+        <br />
+        <button id="AddButton">Add New Contact</button>
+
+        <br />
+        <input type="submit" value="CreateList" class="btn btn-default" />
+        <input type="hidden" id="totalContacts" value="0" />
+
+
+    }
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#AddButton").click(function () {
+                tc = parseInt($("#totalContacts").val());
+                tc = tc + 1;
+                $("#totalContacts").val(tc)
+
+                $("tbody").append('<input type="text" name="[' + (tc - 1) + '].PriceId" /><input type="text" name="[' + (tc - 1) + '].Name" /><input type="text" name="[' + (tc - 1) + '].Code" />Remove')
+            });
+
+            $("tbody").on("click", "span", function () {
+                tc = parseInt($("#totalContacts").val());
+                tc = tc - 1;
+                $("#totalContacts").val(tc)
+
+                $(this).parents("tr").remove();
+            });
+        });
+    </script>*@
+
+
+
+@*@{
+            ViewBag.Title = "Home Page";
+        }
+        <div id="DynamicTableCreation"></div>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="~/Scripts/DynamicOperations.js"></script>
+        <script src="~/Scripts/DynamicTable.js"></script>
+
+
+        <div id="DynamicTableCreation"></div>
+
+
+        <div class="col-xs-12" style="margin-top: 20px;">
+            <button id="SaveTable" type="button" class="btn btn-primary pull-right" style="display: block;">Submit</button>
+        </div>
+
+    <script>
+        $(document).on('click', '#SaveTable', function () {
+            var status = true;
+            if (status == true) {
+                if ($('#DynamicTableCreation').html() != "") {
+                    var TempData = [];
+                    var Th = {};
+
+                    var $STrows = $('#TblDynamic').find('tr');
+                    var Soil_Rows = '', Soil_Columns = '';
+                    $STrows.each(function (index) {
+                        var $td = $(this).find('td');
+                        if (index == 0) {
+                            $td.each(function (i) {
+                                if (i > 0) {
+                                    Soil_Columns += $(this).find('.form-control').val() + '#sep#';
+                                }
+                            });
+                        }
+                        else {
+                            $td.each(function (i) {
+                                if (i > 0) {
+                                    Soil_Rows += $(this).find('.form-control').val() + '#sep#';
+                                }
+                            });
+                        }
+                        Soil_Rows += '#row#';
+                    });
+
+                    Th["Soil_Header"] = $('#tableHead').val();
+                    Th["Soil_Footer"] = $('#tableFooter').val();
+                    Th["Soil_Columns"] = Soil_Columns;
+                    Th["Soil_Rows"] = Soil_Rows;
+                    TempData.push(Th);
+                    var datas = JSON.stringify(TempData[0]);
+                    $.ajax({
+                        url: '/Home/Index',
+                        type: "POST",
+                        data: { 'JsonData': datas },
+                        success: function (result) {
+                            alert("Data Added Successfully");
+                        },
+                        error: function (error) {
+
+                        }
+                    });
+                }
+                else {
+
+                }
+            }
+        });
+    </script>*@

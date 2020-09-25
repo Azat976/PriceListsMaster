@@ -1,0 +1,82 @@
+﻿@model IEnumerable<WebApp.Models.PriceList>
+@{
+    ViewBag.Title = "Каталог игроков";
+}
+
+<h2>Каталог игроков</h2>
+<p>
+    @Html.ActionLink("Добавить игрока", "Create")
+</p>
+<table>
+    <tr>
+        <th>Имя игрока</th>
+        <th>Возраст</th>
+        <th>Позиция на поле</th>
+        <th>Команда</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PriceId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+    </td>
+</tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Каталог команд", "ListTeams")
+</p>
+
+
+
+@*@model WebApp.Models.PriceListView
+    @{
+        ViewData["Title"] = "Index";
+    }
+
+    <h1>Список </h1>
+
+    <form method="get">
+        <div class="form-inline form-group">
+            <a asp-action="Create">Добавить</a>
+
+            <input type="submit" value="Добавить" />
+
+        </div>
+    </form>
+    <p>
+        @Html.ActionLink("Добавить", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+
+        </tr>
+        <tbody>
+
+            @foreach (var b in ViewBag.PriceLists)
+            {
+                <tr>
+                    <td><p>@b.PriceId</p></td>
+                    <td><p>@b.Name</p></td>
+                    <td><p><a href="/Home/Buy/@b.Id">@b.Name</a></p></td>
+                </tr>
+            }
+
+
+
+        </tbody>
+    </table>*@
